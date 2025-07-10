@@ -1,63 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Simulador Financeiro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Simulador Financeiro</title>
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo Simulador Financeiro" class="logo">
-        <h1>Simulador Financeiro</h1>
-        <h2>Transforme sua Vida Financeira</h2>
-        <p>Descubra quanto você pode investir, receba sugestões personalizadas e simule o crescimento do seu dinheiro de forma simples e acessível.</p>
-    </header>
-    <div class="tabs">
-        <button class="tab-link active" data-tab="orcamento">📊 Orçamento</button>
-        <button class="tab-link" data-tab="investimentos">🚀 Investimentos</button>
-        <button class="tab-link" data-tab="progresso">📈 Progresso</button>
-    </div>
-    <div class="container">
-        <div id="orcamento" class="tab-content active">
-            <div class="card">
-                <h2>Renda e Gastos Mensais</h2>
-                <div class="grid">
-                    <div class="input-group">
-                        <label for="renda">Sua Renda Mensal (R$)</label>
-                        <input type="number" id="renda" class="calculo-input" placeholder="3000">
-                    </div>
-                </div>
-                <div class="grid">
-                    <div class="input-group"><label for="aluguel">Aluguel / Moradia</label><input type="number" id="aluguel" class="calculo-input gasto" placeholder="1200"></div>
-                    <div class="input-group"><label for="alimentacao">Alimentação</label><input type="number" id="alimentacao" class="calculo-input gasto" placeholder="500"></div>
-                    <div class="input-group"><label for="transporte">Transporte</label><input type="number" id="transporte" class="calculo-input gasto" placeholder="150"></div>
-                    <div class="input-group"><label for="contas">Contas (água, luz, etc)</label><input type="number" id="contas" class="calculo-input gasto" placeholder="200"></div>
-                    <div class="input-group"><label for="lazer">Lazer</label><input type="number" id="lazer" class="calculo-input gasto" placeholder="300"></div>
-                    <div class="input-group"><label for="outros">Outros Gastos</label><input type="number" id="outros" class="calculo-input gasto" placeholder="100"></div>
-                </div>
-            </div>
-            <div class="card">
-                <h2><span style="font-size: 1.5em; vertical-align: middle;">💡</span> Resumo do Mês</h2>
-                <div class="grid">
-                    <div class="result-box total-gastos">
-                        <div class="label">Total de Gastos Mensais</div>
-                        <div class="value" id="total-gastos-valor">R$ 0,00</div>
-                    </div>
-                    <div class="result-box disponivel">
-                        <div class="label">Disponível para Investir</div>
-                        <div class="value" id="disponivel-valor">R$ 0,00</div>
-                    </div>
-                </div>
-            </div>
+  <header>
+    <h1>Simulador Financeiro</h1>
+    <h2>Transforme sua Vida Financeira</h2>
+    <p>Descubra quanto você pode investir, receba sugestões personalizadas e simule o crescimento do seu dinheiro.</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-link active" data-tab="orcamento">📊 Orçamento</button>
+    <button class="tab-link" data-tab="investimentos">🚀 Investimentos</button>
+    <button class="tab-link" data-tab="progresso">📈 Progresso</button>
+  </div>
+
+  <div class="container">
+    <!-- Aba Orçamento -->
+    <div id="orcamento" class="tab-content active">
+      <div class="card">
+        <h2>Renda e Gastos Mensais</h2>
+        <div class="grid">
+          <div class="input-group">
+            <label for="renda">Sua Renda Mensal (R$)</label>
+            <input type="number" id="renda" class="calculo-input" placeholder="3000" />
+          </div>
         </div>
-        <div id="investimentos" class="tab-content"></div>
-        <div id="progresso" class="tab-content"></div>
+        <div class="grid">
+          <div class="input-group"><label for="aluguel">Aluguel</label><input type="number" id="aluguel" class="calculo-input gasto" placeholder="1200" /></div>
+          <div class="input-group"><label for="alimentacao">Alimentação</label><input type="number" id="alimentacao" class="calculo-input gasto" placeholder="500" /></div>
+          <div class="input-group"><label for="transporte">Transporte</label><input type="number" id="transporte" class="calculo-input gasto" placeholder="150" /></div>
+          <div class="input-group"><label for="contas">Contas</label><input type="number" id="contas" class="calculo-input gasto" placeholder="200" /></div>
+          <div class="input-group"><label for="lazer">Lazer</label><input type="number" id="lazer" class="calculo-input gasto" placeholder="300" /></div>
+          <div class="input-group"><label for="outros">Outros</label><input type="number" id="outros" class="calculo-input gasto" placeholder="100" /></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>💡 Resumo do Mês</h2>
+        <div class="grid">
+          <div class="result-box total-gastos">
+            <div class="label">Total de Gastos</div>
+            <div class="value" id="total-gastos-valor">R$ 0,00</div>
+          </div>
+          <div class="result-box disponivel">
+            <div class="label">Disponível para Investir</div>
+            <div class="value" id="disponivel-valor">R$ 0,00</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="app.js" type="module"></script>
+
+    <!-- Aba Investimentos -->
+    <div id="investimentos" class="tab-content">
+      <div class="card">
+        <h2>👤 Qual seu perfil de investidor?</h2>
+        <p>Sua escolha irá personalizar as sugestões de investimento.</p>
+        <div class="perfil-investidor">
+          <input type="radio" name="perfil" id="conservador" value="conservador" checked>
+          <label for="conservador">Conservador</label>
+          <input type="radio" name="perfil" id="moderado" value="moderado">
+          <label for="moderado">Moderado</label>
+          <input type="radio" name="perfil" id="agressivo" value="agressivo">
+          <label for="agressivo">Agressivo</label>
+        </div>
+      </div>
+      <div class="card">
+        <h2>🚀 Sugestões de Investimento</h2>
+        <div id="sugestoes-container"></div>
+        <a href="https://www.google.com/search?q=abrir+conta+em+corretora" target="_blank" class="btn-investir">Comece a investir agora!</a>
+      </div>
+    </div>
+
+    <!-- Aba Progresso -->
+    <div id="progresso" class="tab-content">
+      <div class="card">
+        <h2>📈 Projeção de Crescimento</h2>
+        <p>Veja quanto seu dinheiro pode crescer com aportes mensais e tempo.</p>
+        <div id="taxa-info" class="taxa-info-box"></div>
+        <div class="simulador-grid">
+          <div class="simulador-item">
+            <div class="periodo">Em 1 ano</div>
+            <div class="valor-acumulado" id="projecao-1-ano">R$ 0,00</div>
+            <div class="detalhes-projecao">
+              <span>Total Investido: <strong id="investido-1-ano">R$ 0,00</strong></span>
+              <span>Retorno: <strong id="retorno-1-ano">0%</strong></span>
+            </div>
+          </div>
+          <div class="simulador-item">
+            <div class="periodo">Em 5 anos</div>
+            <div class="valor-acumulado" id="projecao-5-anos">R$ 0,00</div>
+            <div class="detalhes-projecao">
+              <span>Total Investido: <strong id="investido-5-anos">R$ 0,00</strong></span>
+              <span>Retorno: <strong id="retorno-5-anos">0%</strong></span>
+            </div>
+          </div>
+          <div class="simulador-item">
+            <div class="periodo">Em 10 anos</div>
+            <div class="valor-acumulado" id="projecao-10-anos">R$ 0,00</div>
+            <div class="detalhes-projecao">
+              <span>Total Investido: <strong id="investido-10-anos">R$ 0,00</strong></span>
+              <span>Retorno: <strong id="retorno-10-anos">0%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="motivacao-panel" class="card">
+        <h3>Continue no caminho certo!</h3>
+        <p id="motivacao-texto">Cada real economizado é um passo em direção à sua liberdade financeira.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" type="module"></script>
 </body>
 </html>
