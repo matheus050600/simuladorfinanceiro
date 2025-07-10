@@ -1,15 +1,18 @@
+const CACHE_NAME = 'simulador-cache-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/app.js',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png'
+];
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('simulador-cache-v1').then(cache => {
-      return cache.addAll([
-        './',
-        './index.html',
-        './style.css',
-        './app.js',
-        './icon-192.png',
-        './icon-512.png'
-      ]);
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(urlsToCache);
     })
   );
 });
